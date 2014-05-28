@@ -8,6 +8,8 @@ public class TestSLinkedList {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		long startTime, endTime;
+		startTime = System.nanoTime();
 		long freeMemory, totalMemory;
 		long freeMemory2, totalMemory2;
 		Runtime runtime = Runtime.getRuntime();
@@ -21,7 +23,7 @@ public class TestSLinkedList {
 		rand.setSeed(System.currentTimeMillis());
 		int randomLetter;
 		
-		for (int i =1 ; i<=3000000; i++) {
+		for (int i =1 ; i<=4500000; i++) {
 			randomLetter = rand.nextInt(26) + 65; 
 			myList.addFirst(new Node( (char)randomLetter+"" , null));
 		}
@@ -35,7 +37,7 @@ public class TestSLinkedList {
 		
 		System.out.println("---------------------------");
 		
-	
+	    endTime = System.nanoTime();
 		System.out.println("Total Memory1 : " + totalMemory);
 		System.out.println("Free Memory1 : " + freeMemory);
 		System.out.println("Program Usage1 : " + (totalMemory-freeMemory));
@@ -44,7 +46,7 @@ public class TestSLinkedList {
 		System.out.println("Total Memory2 : " + totalMemory);
 		System.out.println("Free Memory2 : " + freeMemory);
 		System.out.println("Program Usage2 : " + (totalMemory-freeMemory));
-		
+		System.out.println ("Program Execution Time " + (endTime-startTime));
 	}
 
 }
